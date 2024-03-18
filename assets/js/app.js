@@ -1,9 +1,9 @@
-const main = document.querySelector("main");
+const article_container = document.querySelector(".article-container");
 const select = document.querySelector("select");
 const select_button = document.querySelector("#select-button");
 
 async function displayPost() {
-    const response = await fetch("https://www.reddit.com/r/" + select.value +"/new.json?limit=10");
+    const response = await fetch("https://www.reddit.com/r/" + select.value + "/new.json?limit=10");
     const post = await response.json();
 
     for (let i = 0; i < post.data.children.length; i++) {
@@ -16,12 +16,13 @@ async function displayPost() {
         const author = document.createElement("p");
         const hr = document.createElement("hr");
 
-        main.appendChild(article);
+        article_container.appendChild(article);
         article.appendChild(name);
         article.appendChild(story);
         article.appendChild(author);
         article.appendChild(hr);
 
+        article.classList.add("article")
         name.classList.add("name");
         story.classList.add("story");
         author.classList.add("author");
@@ -33,6 +34,18 @@ async function displayPost() {
     }
 }
 
-displayPost();
+select_button.addEventListener("click", function () {
 
-select_button.addEventListener("click", displayPost);
+    const article = document.querySelectorAll(".article");
+
+    for (let i = 0; i < article.length; i++) {
+
+        article_container.removeChild(article[i])
+
+    }
+
+    displayPost()
+    tts()
+});
+
+displayPost()
