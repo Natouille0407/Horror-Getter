@@ -1,7 +1,9 @@
 const main = document.querySelector("main");
+const select = document.querySelector("select");
+const select_button = document.querySelector("#select-button");
 
 async function displayPost() {
-    const response = await fetch("https://www.reddit.com/r/letsnotmeet/new.json?limit=10");
+    const response = await fetch("https://www.reddit.com/r/" + select.value +"/new.json?limit=10");
     const post = await response.json();
 
     for (let i = 0; i < post.data.children.length; i++) {
@@ -32,3 +34,5 @@ async function displayPost() {
 }
 
 displayPost();
+
+select_button.addEventListener("click", displayPost);
