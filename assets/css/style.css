@@ -1,0 +1,30 @@
+body {
+    background-color: rgb(36, 36, 36);
+    color: white;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    margin: 10px 20px;
+}
+
+header {
+    background-color: rgb(228, 121, 0);
+    padding-top: 2px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    padding-bottom: 25px;
+    margin-left: 25px;
+}
+
+hr {
+    margin: 50px 80px;
+}
+
+.story {
+    font-size: larger;
+    line-height: 28px;
+}
