@@ -2,12 +2,12 @@ const article_container = document.querySelector(".article-container");
 const select = document.querySelector("select");
 const select_button = document.querySelector("#select-button");
 const amount = document.querySelector("#amount");
-let usedIndices = []; // Tableau pour stocker les indices déjà utilisés
+let usedIndices = [];
 
-// Fonction pour générer un index aléatoire non utilisé
+
 function getRandomIndex(max) {
     let randomIndex = Math.floor(Math.random() * max);
-    while (usedIndices.includes(randomIndex)) { // Vérifie si l'index généré est déjà utilisé
+    while (usedIndices.includes(randomIndex)) {
         randomIndex = Math.floor(Math.random() * max);
     }
     return randomIndex;
@@ -19,8 +19,7 @@ async function displayPost() {
 
     for (let i = 0; i < amount.value; i++) {
         let randomIndex = getRandomIndex(post.data.children.length);
-        usedIndices.push(randomIndex); // Ajoute l'index utilisé au tableau des indices utilisés
-
+        usedIndices.push(randomIndex);
         const article = document.createElement("article");
         const name = document.createElement("h2");
         const story = document.createElement("p");
@@ -51,7 +50,7 @@ select_button.addEventListener("click", function () {
     for (let i = 0; i < article.length; i++) {
         article_container.removeChild(article[i]);
     }
-    usedIndices = []; // Réinitialise le tableau des indices utilisés
+    usedIndices = [];
     displayPost();
 });
 
